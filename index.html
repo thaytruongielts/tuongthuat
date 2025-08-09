@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Giảng Tương Tác: Ngữ Pháp Câu Tường Thuật</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .lesson-container {
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 20px;
+        }
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .slide-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+        }
+        .interactive-section {
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-top: 1.5rem;
+            line-height: 1.8;
+        }
+        .interactive-section textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            resize: vertical;
+            transition: all 0.2s ease;
+        }
+        .interactive-section textarea:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+        }
+        .correct-answer-box {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-top: 1rem;
+            font-weight: 600;
+            line-height: 1.5;
+            display: none;
+        }
+        .button {
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button:hover:enabled {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .submit-button {
+            background-color: #2563eb;
+            color: white;
+        }
+        .lesson-nav-button {
+            background-color: #48bb78;
+            color: white;
+        }
+        .final-message {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d3748;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .restart-button {
+            background-color: #f6ad55;
+            color: white;
+            margin-top: 1rem;
+        }
+        .restart-button:hover:enabled {
+            background-color: #ed8936;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h1 class="text-3xl font-extrabold text-center text-gray-800 mb-6">Bài Giảng Tương Tác: Ngữ Pháp Câu Tường Thuật</h1>
+
+        <div id="lesson-slides">
+            <div id="slide-0" class="lesson-slide">
+                <h2 class="slide-title">Slide 1: Giới thiệu chung</h2>
+                <p class="slide-content">Chào mừng các em đến với bài giảng tương tác về **Câu Tường Thuật (Reported Speech)**. Chúng ta sẽ cùng nhau tìm hiểu cách thuật lại lời nói của người khác.</p>
+                <p class="slide-content">Hãy sẵn sàng để chinh phục các bài tập tương tác!</p>
+            </div>
+
+            <div id="slide-1" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 2: Quy tắc Lùi thì</h2>
+                <p class="slide-content">Khi động từ tường thuật (reporting verb) ở thì quá khứ (ví dụ: **said, told**), chúng ta phải lùi thì của động từ trong câu trích dẫn:</p>
+                <ul class="list-disc list-inside space-y-2 mb-4 text-gray-700">
+                    <li>**Hiện tại đơn** → **Quá khứ đơn**</li>
+                    <li>**Hiện tại tiếp diễn** → **Quá khứ tiếp diễn**</li>
+                    <li>**Hiện tại hoàn thành** → **Quá khứ hoàn thành**</li>
+                    <li>**Quá khứ đơn** → **Quá khứ hoàn thành**</li>
+                    <li>**Tương lai đơn** → **Would + V**</li>
+                </ul>
+            </div>
+            
+            <div id="slide-2" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 3: Luyện tập Lùi thì (1)</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: He said: "I live in a big city."</p>
+                    <textarea id="q1-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="1">Nộp bài</button>
+                    <div id="q1-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He said that he lived in a big city.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-3" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 4: Luyện tập Lùi thì (2)</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: Peter said: "I did it by myself."</p>
+                    <textarea id="q2-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="2">Nộp bài</button>
+                    <div id="q2-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>Peter said that he had done it by himself.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-4" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 5: Quy tắc Thay đổi Trạng từ</h2>
+                <p class="slide-content">Các trạng từ chỉ thời gian và nơi chốn cũng phải thay đổi:</p>
+                <ul class="list-disc list-inside space-y-2 mb-4 text-gray-700">
+                    <li>**now** → **then**</li>
+                    <li>**yesterday** → **the day before / the previous day**</li>
+                    <li>**tomorrow** → **the next day / the following day**</li>
+                    <li>**this** → **that**</li>
+                    <li>**here** → **there**</li>
+                </ul>
+            </div>
+            
+            <div id="slide-5" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 6: Luyện tập Thay đổi Trạng từ (1)</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: Lan said: "I will call you tomorrow."</p>
+                    <textarea id="q3-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="3">Nộp bài</button>
+                    <div id="q3-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>Lan said that she would call me the next day.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-6" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 7: Luyện tập Thay đổi Trạng từ (2)</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: Mary said: "I was in the park yesterday."</p>
+                    <textarea id="q4-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="4">Nộp bài</button>
+                    <div id="q4-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>Mary said that she had been in the park the day before.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-7" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 8: Quy tắc Thay đổi Đại từ</h2>
+                <p class="slide-content">Các đại từ (chủ ngữ, tân ngữ, sở hữu) phải được thay đổi để phù hợp với ngữ cảnh:</p>
+                <ul class="list-disc list-inside space-y-2 mb-4 text-gray-700">
+                    <li>**I** → **he / she**</li>
+                    <li>**my** → **his / her**</li>
+                    <li>**we** → **they**</li>
+                    <li>**our** → **their**</li>
+                    <li>**you** → **I / me / him / her** (tùy ngữ cảnh)</li>
+                </ul>
+            </div>
+
+            <div id="slide-8" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 9: Luyện tập Thay đổi Đại từ (1)</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: She said: "I have finished my homework."</p>
+                    <textarea id="q5-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="5">Nộp bài</button>
+                    <div id="q5-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>She said that she had finished her homework.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-9" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 10: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: Tom said to me: "I saw you at the party last night."</p>
+                    <textarea id="q6-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="6">Nộp bài</button>
+                    <div id="q6-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>Tom told me that he had seen me at the party the night before.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-10" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 11: Câu tường thuật dạng câu hỏi Yes/No</h2>
+                <p class="slide-content">Dùng **if** hoặc **whether** và chuyển câu hỏi thành câu trần thuật. Động từ tường thuật thường là **asked** hoặc **wondered**.</p>
+                <p class="slide-content">**Cấu trúc:** S + asked + (O) + **if/whether** + S + V (lùi thì)</p>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: He asked me: "Are you a student?"</p>
+                    <textarea id="q7-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="7">Nộp bài</button>
+                    <div id="q7-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He asked me if I was a student.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-11" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 12: Câu tường thuật dạng câu hỏi WH-questions</h2>
+                <p class="slide-content">Dùng chính từ để hỏi (**what, where, when, how**...) để nối câu. Động từ tường thuật thường là **asked**.</p>
+                <p class="slide-content">**Cấu trúc:** S + asked + (O) + **Wh-word** + S + V (lùi thì)</p>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: She asked him: "Where do you live?"</p>
+                    <textarea id="q8-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="8">Nộp bài</button>
+                    <div id="q8-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>She asked him where he lived.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-12" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 13: Động từ khuyết thiếu (Can)</h2>
+                <p class="slide-content">**Can** sẽ được chuyển thành **could** khi tường thuật.</p>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: He said: "I can swim very well."</p>
+                    <textarea id="q9-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="9">Nộp bài</button>
+                    <div id="q9-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He said that he could swim very well.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-13" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 14: Động từ khuyết thiếu (Must)</h2>
+                <p class="slide-content">**Must** thường chuyển thành **had to** (để diễn tả sự bắt buộc).</p>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: She said: "I must finish my report today."</p>
+                    <textarea id="q10-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="10">Nộp bài</button>
+                    <div id="q10-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>She said that she had to finish her report that day.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-14" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 15: Câu tường thuật dạng mệnh lệnh</h2>
+                <p class="slide-content">Dùng cấu trúc **S + asked/told/ordered + O + to V**.</p>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: My teacher told me: "Study hard."</p>
+                    <textarea id="q11-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="11">Nộp bài</button>
+                    <div id="q11-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>My teacher told me to study hard.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-15" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 16: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: She said: "I am going to the cinema now."</p>
+                    <textarea id="q12-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="12">Nộp bài</button>
+                    <div id="q12-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>She said that she was going to the cinema then.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-16" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 17: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "We have finished our work," they said.</p>
+                    <textarea id="q13-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="13">Nộp bài</button>
+                    <div id="q13-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>They said that they had finished their work.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-17" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 18: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "I am waiting for my friend," he said to me.</p>
+                    <textarea id="q14-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="14">Nộp bài</button>
+                    <div id="q14-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He told me that he was waiting for his friend.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-18" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 19: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "I was sleeping when you called," he said.</p>
+                    <textarea id="q15-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="15">Nộp bài</button>
+                    <div id="q15-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He said that he had been sleeping when I called.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-19" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 20: Tương lai gần</h2>
+                <p class="slide-content">**Am/is/are going to + V** sẽ lùi thành **was/were going to + V**.</p>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "We are going to have a party next weekend," Huong said.</p>
+                    <textarea id="q16-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="16">Nộp bài</button>
+                    <div id="q16-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>Huong said that they were going to have a party the next weekend.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-20" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 21: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "I can help you with your homework," she said to me.</p>
+                    <textarea id="q17-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="17">Nộp bài</button>
+                    <div id="q17-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>She told me that she could help me with my homework.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-21" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 22: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "Don't touch the wire!" she warned me.</p>
+                    <textarea id="q18-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="18">Nộp bài</button>
+                    <div id="q18-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>She warned me not to touch the wire.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-22" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 23: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "I'm sorry I was late," he said.</p>
+                    <textarea id="q19-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="19">Nộp bài</button>
+                    <div id="q19-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He apologized for being late.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-23" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 24: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "I may come to your house tonight," she said.</p>
+                    <textarea id="q20-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="20">Nộp bài</button>
+                    <div id="q20-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>She said that she might come to my house that night.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-24" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 25: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "The test will be next week," the teacher said.</p>
+                    <textarea id="q21-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="21">Nộp bài</button>
+                    <div id="q21-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>The teacher said that the test would be the following week.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-25" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 26: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "I have been waiting for you for an hour," he told me.</p>
+                    <textarea id="q22-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="22">Nộp bài</button>
+                    <div id="q22-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He told me that he had been waiting for me for an hour.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-26" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 27: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "What are you doing here?" he asked me.</p>
+                    <textarea id="q23-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="23">Nộp bài</button>
+                    <div id="q23-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He asked me what I was doing there.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-27" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 28: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "Can you help me with this box?" he asked her.</p>
+                    <textarea id="q24-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="24">Nộp bài</button>
+                    <div id="q24-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He asked her if she could help him with that box.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-28" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 29: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "I must go to the doctor," she said.</p>
+                    <textarea id="q25-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="25">Nộp bài</button>
+                    <div id="q25-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>She said that she had to go to the doctor.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-29" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 30: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "I saw him here yesterday," she said.</p>
+                    <textarea id="q26-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="26">Nộp bài</button>
+                    <div id="q26-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>She said that she had seen him there the day before.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-30" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 31: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "Don't forget to lock the door," he said to me.</p>
+                    <textarea id="q27-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="27">Nộp bài</button>
+                    <div id="q27-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He reminded me to lock the door.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-31" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 32: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "I will call you tonight," she said to her mother.</p>
+                    <textarea id="q28-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="28">Nộp bài</button>
+                    <div id="q28-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>She told her mother that she would call her that night.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-32" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 33: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "What are you going to do this weekend?" he asked us.</p>
+                    <textarea id="q29-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="29">Nộp bài</button>
+                    <div id="q29-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He asked us what we were going to do that weekend.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-33" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 34: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "The plane has just landed," he announced.</p>
+                    <textarea id="q30-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="30">Nộp bài</button>
+                    <div id="q30-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He announced that the plane had just landed.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-34" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 35: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "I wish I could fly," she said.</p>
+                    <textarea id="q31-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="31">Nộp bài</button>
+                    <div id="q31-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>She said that she wished she could fly.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-35" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 36: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "Don't be late again," the manager said to her.</p>
+                    <textarea id="q32-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="32">Nộp bài</button>
+                    <div id="q32-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>The manager told her not to be late again.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-36" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 37: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "I'm not feeling well today," he said.</p>
+                    <textarea id="q33-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="33">Nộp bài</button>
+                    <div id="q33-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He said that he wasn't feeling well that day.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-37" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 38: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "We will visit the museum next week," they said.</p>
+                    <textarea id="q34-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="34">Nộp bài</button>
+                    <div id="q34-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>They said that they would visit the museum the following week.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-38" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 39: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "I haven't seen her since last month," he said.</p>
+                    <textarea id="q35-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="35">Nộp bài</button>
+                    <div id="q35-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>He said that he hadn't seen her since the previous month.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-39" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 40: Luyện tập tổng hợp</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "What time did the train leave?" she asked me.</p>
+                    <textarea id="q36-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="36">Nộp bài</button>
+                    <div id="q36-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>She asked me what time the train had left.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-40" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 41: Luyện tập cuối</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "I think you should go to bed early," my mother told me.</p>
+                    <textarea id="q37-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="37">Nộp bài</button>
+                    <div id="q37-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>My mother told me that I should go to bed early.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide-41" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 42: Luyện tập cuối</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "He might be at the office now," she said.</p>
+                    <textarea id="q38-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="38">Nộp bài</button>
+                    <div id="q38-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>She said that he might be at the office then.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide-42" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 43: Luyện tập cuối</h2>
+                <div class="interactive-section">
+                    <p class="font-bold text-lg mb-2">Chuyển câu trực tiếp sau sang câu gián tiếp:</p>
+                    <p class="font-semibold text-blue-800 mb-4">Câu trực tiếp: "Don't forget to hand in your essay," the teacher said to the class.</p>
+                    <textarea id="q39-answer" placeholder="Viết câu trả lời của bạn..."></textarea>
+                    <button class="submit-button button mt-4" data-quiz-id="39">Nộp bài</button>
+                    <div id="q39-correct-answer" class="correct-answer-box">
+                        <p class="font-bold">Đáp án mẫu:</p>
+                        <p>The teacher told the class not to forget to hand in their essays.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="final-screen" class="lesson-slide hidden">
+                <h2 class="slide-title">Hoàn Thành Bài Giảng!</h2>
+                <p class="final-message">🎉 Chúc mừng! Bạn đã hoàn thành 40 bài luyện tập về Câu Tường Thuật.</p>
+                <button id="restart-lesson-button" class="button restart-button w-full mt-8">Học Lại Bài Giảng</button>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center mt-8">
+            <button id="prev-slide-button" class="button lesson-nav-button" disabled>Slide Trước</button>
+            <span id="slide-indicator" class="text-lg font-semibold text-gray-700">Slide 1 / 44</span>
+            <button id="next-slide-button" class="button lesson-nav-button">Slide Tiếp Theo</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.lesson-slide');
+        const prevButton = document.getElementById('prev-slide-button');
+        const nextButton = document.getElementById('next-slide-button');
+        const slideIndicator = document.getElementById('slide-indicator');
+        const restartLessonButton = document.getElementById('restart-lesson-button');
+        const totalLessonSlides = slides.length;
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.add('hidden');
+                if (i === index) {
+                    slide.classList.remove('hidden');
+                }
+            });
+
+            prevButton.disabled = (index === 0);
+            
+            if (index < totalLessonSlides - 1) {
+                nextButton.classList.remove('hidden');
+                slideIndicator.textContent = `Slide ${index + 1} / ${totalLessonSlides}`;
+            } else {
+                nextButton.classList.add('hidden');
+                slideIndicator.textContent = `Hoàn thành!`;
+            }
+        }
+
+        prevButton.addEventListener('click', () => {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                showSlide(currentSlideIndex);
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentSlideIndex < totalLessonSlides - 1) {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            }
+        });
+
+        restartLessonButton.addEventListener('click', () => {
+            currentSlideIndex = 0;
+            showSlide(currentSlideIndex);
+            document.querySelectorAll('textarea').forEach(textarea => {
+                textarea.value = '';
+                textarea.disabled = false;
+            });
+            document.querySelectorAll('.submit-button').forEach(button => {
+                button.disabled = false;
+            });
+            document.querySelectorAll('.correct-answer-box').forEach(answerBox => {
+                answerBox.style.display = 'none';
+            });
+        });
+
+        document.querySelectorAll('.submit-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const quizId = e.target.dataset.quizId;
+                const answerBox = document.getElementById(`q${quizId}-correct-answer`);
+                answerBox.style.display = 'block';
+            });
+        });
+
+        showSlide(currentSlideIndex);
+    </script>
+</body>
+</html>
